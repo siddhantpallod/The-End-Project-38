@@ -54,19 +54,11 @@ function draw() {
      if(obstaclesGroup.isTouching(player)){ 
         player.scale=0.1;
         //score = 0;
-        gameState = "over";       
+        gameState = "over";    
+         
      }
   }
     
-    if(gameState === "over"){
-      obstaclesGroup.setVelocityEach(0);
-     ground.velocityX = 0;
-     backgr.velocityX = 0;
-     FoodGroup.setVelocityEach(0);
-     player.visible = false;
-     
-     
-    }
     if(ground.x < 0){
         ground.x = ground.width/2;
   }
@@ -85,24 +77,13 @@ function draw() {
     score = score + 2;
     }
   
-    switch(score){
-        case 10: player.scale=0.12;
-                break;
-        case 20: player.scale=0.14;
-                break;
-        case 30: player.scale=0.16;
-                break;
-        case 40: player.scale=0.18;
-                break;
-        default: break;
-    }
   
     
   
   player.collide(ground);
     
   spawnFood();
-  spawnObstacles();
+        spawnObstacles();  
   drawSprites();
   
   stroke("white");
@@ -112,6 +93,14 @@ function draw() {
   
   if (gameState === "over"){
       textSize(20);
+      obstaclesGroup.setVelocityEach(0);
+      ground.velocityX = 0;
+      backgr.velocityX = 0;
+      FoodGroup.setVelocityEach(0);
+      player.visible = false;
+      FoodGroup.setVisibleEach(0);
+       obstaclesGroup.setVisibleEach(0);
+      
       stroke("white");
       text("GAME OVER !!",200,200);
   }
