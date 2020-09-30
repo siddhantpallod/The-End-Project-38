@@ -57,7 +57,7 @@ function draw() {
         gameState = "over";    
          
      }
-  }
+  
     
     if(ground.x < 0){
         ground.x = ground.width/2;
@@ -84,6 +84,7 @@ function draw() {
     
   spawnFood();
         spawnObstacles();  
+  }
   drawSprites();
   
   stroke("white");
