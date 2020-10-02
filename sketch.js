@@ -62,7 +62,7 @@ function draw() {
     if(ground.x < 0){
         ground.x = ground.width/2;
   }
-       if(backgr.x < 0){
+       if(backgr.x < camera.position.x - 200){
         backgr.x = backgr.width/2;
   }
        if(keyDown("space") && player.y > 300 ) {
